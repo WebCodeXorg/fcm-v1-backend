@@ -7,8 +7,9 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const PROJECT_ID = "cv-notifications"; // 👈 replace with Firebase Project ID
-const SERVICE_ACCOUNT = require("./service-account.json");
+const PROJECT_ID = process.env.PROJECT_ID;
+const SERVICE_ACCOUNT = JSON.parse(process.env.SERVICE_ACCOUNT);
+
 
 const SCOPES = ["https://www.googleapis.com/auth/firebase.messaging"];
 
